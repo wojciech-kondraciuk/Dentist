@@ -1,0 +1,153 @@
+//rwd
+$breakpoints: (
+	"mobile_S": 320px,
+    "mobile_M": 375px,
+    "mobile_L": 425px,
+    "tablet": 768px,
+    "laptop": 1024px,
+    "laptop_L": 1200px,
+    "laptop_XL": 1440px
+);
+
+@mixin media-queries($width, $type: min) {
+
+    @if map_has_key($breakpoints, $width) {
+
+        $width: map_get($breakpoints, $width);
+
+        @if $type==max {
+            $width: $width - 1px;
+        }
+
+        @media all and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+//size element
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//position
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//center element
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//calculate rem
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+}
+
+//fonts
+@mixin font($size: false, $colour: false, $weight: false, $line: false) {
+
+    @if $size {
+        @include font-size($size)
+    }
+
+    @if $colour {
+        color: $colour;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $line {
+        line-height: $line;
+    }
+}
+
+//wrapper margin auto
+@mixin push--auto {
+    display: block;
+
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+//box-shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    }
+
+    @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+//background-image
+@mixin background-image($imgpath, $position:0 0, $repeat: no-repeat) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+
+//margin and padding
+@mixin margin-padding($m-direction, $m-amount, $p-direction, $p-amount) {
+    @if $m-direction==all {
+        margin: $m-amount;
+    }
+
+    @else {
+        margin-#{$m-direction}: $m-amount;
+    }
+
+    @if $p-direction==all {
+        padding: $p-amount;
+    }
+
+    @else {
+        padding-#{$p-direction}: $p-amount;
+    }
+}
+
+//custom button
+@mixin custom-button($width, $height, $background-color, $color) {
+    outline: none;
+    border: none;
+    width: $width;
+    height: $height;
+    background-color: $background-color;
+    color: $color;
+    text-align: center;
+    cursor: pointer;
+}
+
+//transitions
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}

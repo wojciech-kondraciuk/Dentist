@@ -1,0 +1,15 @@
+.footer {
+  @include margin-padding(null, null, all, 20px);
+  background-color: $basic-layout-color;
+  text-align: center;
+
+  .info {
+    @include margin-padding(bottom, 40px, null, null);
+    color: #ffffff;
+
+    &_header {
+      @include font(18px, null, bold);
+      @include margin-padding(bottom, 5px, null, null);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.medi {
+  @include margin-padding(bottom, 20px, null, null);
+
+  .exertions {
+    @include margin-padding(bottom, 20px, left, 30px);
+    @include background-image("../../images/pk.png");
+    background-size: 20px auto;
+    background-position: 0px 5px;
+
+    .exertions_name {
+      @include font(18px, null, bold);
+      @include margin-padding(bottom, 5px, null, null);
+    }
+  }
+
+  .medi_foto {
+    text-align: center;
+
+    .medi_img {
+      @include size(100%, auto);
+      max-width: 615px;
+    }
+  }
+}

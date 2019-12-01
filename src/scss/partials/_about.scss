@@ -1,0 +1,37 @@
+.about_foto {
+  text-align: center;
+
+  .about__img {
+    @include size(100%, auto);
+    max-width: 600px;
+  }
+}
+
+.about {
+  @include margin-padding(bottom, 20px, null, null);
+
+  @include media-queries(tablet, min) {
+    @include flexbox;
+  }
+
+  &_text {
+    @include margin-padding(null, null, right, 20px);
+  }
+
+  &_header {
+    @include margin-padding(bottom, 10px, null, null);
+    @include font(22px, $basic-layout-color, null);
+
+    @include media-queries(tablet, min) {
+      @include font(36px, null, null, 35px);
+    }
+  }
+
+  &_desc {
+    @include margin-padding(bottom, 10px, null, null);
+
+    @include media-queries(tablet, min) {
+      @include font(18px, null, null, 26px);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+body {
+  font-family: $font-primary;
+  @include font(16px, $basic-text-color, 400, normal);
+  background-color: $basic-background;
+
+  @include media-queries(tablet, max) {
+    @include font(14px, null, null, null);
+  }
+}
+
+.wrapper {
+  @include size(1280px, auto);
+  @include push--auto();
+}
+
+h1 {
+  @include margin-padding(bottom, 20px, null, null);
+  color: $basic-layout-color;
+  text-align: center;
+
+  @include media-queries(tablet, min) {
+    font-size: 36px;
+  }
+}
+
+section {
+  @include margin-padding(null, null, all, 20px);
+}
