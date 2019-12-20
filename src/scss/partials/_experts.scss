@@ -1,13 +1,14 @@
 .experts {
   @include margin-padding(bottom, 20px, null, null);
 
-  @include media-queries(leptop, min) {
+  @include media-queries(tablet, min) {
     @include flexbox;
+    @include flex-wrap(wrap);
   }
 
   &_foto {
-    text-align: center;
     @include margin-padding(bottom, 5px, null, null);
+    text-align: center;
 
     .experts_img {
       @include size(100%, auto);
@@ -16,9 +17,9 @@
   }
 
   &_name {
-    text-align: center;
     @include font(18px, null, bold);
     @include margin-padding(bottom, 20px, null, null);
+    text-align: center;
 
     .experts_title {
       @include font(18px, #6f6f6f, bold);
@@ -26,6 +27,14 @@
 
     .experts_func {
       @include font(14px, #6f6f6f, bold);
+    }
+  }
+
+  .expert {
+    @include flex(1);
+
+    &.mid {
+      @include margin-padding(null, null, all, 0 20px);
     }
   }
 }

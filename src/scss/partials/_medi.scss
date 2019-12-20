@@ -1,15 +1,31 @@
 .medi {
   @include margin-padding(bottom, 20px, null, null);
 
+  @include media-queries(laptop_L, min) {
+    @include flexbox;
+    @include flex-direction(row-reverse);
+  }
+
   .exertions {
     @include margin-padding(bottom, 20px, left, 30px);
-    @include background-image("../../images/pk.png");
+    @include background-image("../../src/images/pk.png");
     background-size: 20px auto;
     background-position: 0px 5px;
+
+    @include media-queries(laptop_L, min) {
+      line-height: 26px;
+    }
 
     .exertions_name {
       @include font(18px, null, bold);
       @include margin-padding(bottom, 5px, null, null);
+    }
+  }
+
+  .medi_text {
+    @include media-queries(laptop_L, min) {
+      @include flex(1);
+      @include margin-padding(null, null, left, 20px);
     }
   }
 
@@ -19,6 +35,10 @@
     .medi_img {
       @include size(100%, auto);
       max-width: 615px;
+    }
+
+    @include media-queries(laptop_L, min) {
+      @include flex(1);
     }
   }
 }

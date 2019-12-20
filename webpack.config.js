@@ -10,7 +10,8 @@ module.exports = {
 
   output: {
     path: resolve(__dirname, "./dist"),
-    filename: "[name].[chunkhash].bundle.js"
+    filename: "[name].[chunkhash].bundle.js",
+    publicPath: "/"
   },
 
   module: {
@@ -34,7 +35,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|jpg)$/i,
+        test: /\.(jpg|png)$/,
         use: [
           {
             loader: "file-loader",
@@ -55,7 +56,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       minify: {
-        collapseWhitespace: true //minimalize or not
+        collapseWhitespace: true
       },
       hash: true,
       template: "index.html"

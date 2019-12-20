@@ -1,21 +1,8 @@
-.about_foto {
-  text-align: center;
-
-  .about__img {
-    @include size(100%, auto);
-    max-width: 600px;
-  }
-}
-
 .about {
   @include margin-padding(bottom, 20px, null, null);
 
   @include media-queries(tablet, min) {
     @include flexbox;
-  }
-
-  &_text {
-    @include margin-padding(null, null, right, 20px);
   }
 
   &_header {
@@ -25,6 +12,18 @@
     @include media-queries(tablet, min) {
       @include font(36px, null, null, 35px);
     }
+
+    @include media-queries(laptop_L, min) {
+      @include margin-padding(bottom, 40px, null, null);
+    }
+  }
+
+  &_text {
+    @include margin-padding(null, null, right, 20px);
+
+    @include media-queries(tablet, min) {
+      @include flex(2);
+    }
   }
 
   &_desc {
@@ -33,5 +32,22 @@
     @include media-queries(tablet, min) {
       @include font(18px, null, null, 26px);
     }
+
+    @include media-queries(laptop_L, min) {
+      line-height: 28px;
+    }
+  }
+
+  &_foto {
+    text-align: center;
+
+    @include media-queries(tablet, min) {
+      @include flex(1);
+    }
+  }
+
+  &_img {
+    @include size(100%, auto);
+    max-width: 600px;
   }
 }

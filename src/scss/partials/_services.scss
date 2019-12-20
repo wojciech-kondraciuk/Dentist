@@ -1,26 +1,30 @@
 .services {
+  @include margin-padding(null, null, all, 20px);
   background-color: $basic-layout-color;
   text-align: center;
-  @include margin-padding(null, null, all, 20px);
 
   @include media-queries(tablet, min) {
     @include flexbox;
     @include margin-padding(null, null, all, 40px 20px);
   }
 
+  @include media-queries(laptop_L, min) {
+    @include margin-padding(bottom, 40px, null, null);
+  }
+
   .service {
-    text-align: center;
     @include size(100%, auto);
     @include margin-padding(bottom, 40px, null, null);
+    text-align: center;
 
     @include media-queries(tablet, min) {
       @include margin-padding(bottom, 0px, null, null);
     }
 
     .container_img {
-      display: inline-block;
       @include margin-padding(bottom, 10px, null, null);
       @include size(120px, 120px);
+      display: inline-block;
       border: 2px solid #ffffff;
       border-radius: 50%;
 

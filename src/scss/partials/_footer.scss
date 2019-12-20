@@ -3,13 +3,44 @@
   background-color: $basic-layout-color;
   text-align: center;
 
+  @include media-queries(tablet, min) {
+    @include flexbox;
+  }
+
+  @include media-queries(laptop_L, min) {
+    @include justify-content(space-around);
+  }
+
   .info {
     @include margin-padding(bottom, 40px, null, null);
     color: #ffffff;
 
+    @include media-queries(tablet, min) {
+      @include flex(1);
+      @include margin-padding(null, null, all, 0px 10px);
+      text-align: left;
+    }
+
+    @include media-queries(laptop_L, min) {
+      @include margin-padding(bottom, 0px, null, null);
+      text-align: center;
+    }
+
     &_header {
       @include font(18px, null, bold);
       @include margin-padding(bottom, 5px, null, null);
+
+      @include media-queries(laptop_L, min) {
+        @include margin-padding(bottom, 20px, null, null);
+      }
+    }
+
+    .fb_img {
+      @include size(10px, auto);
+    }
+
+    &:last-child {
+      @include margin-padding(bottom, 0px, null, null);
     }
   }
 }

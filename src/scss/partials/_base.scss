@@ -8,21 +8,30 @@ body {
   }
 }
 
-.wrapper {
-  @include size(1280px, auto);
-  @include push--auto();
-}
-
 h1 {
   @include margin-padding(bottom, 20px, null, null);
   color: $basic-layout-color;
   text-align: center;
 
   @include media-queries(tablet, min) {
-    font-size: 36px;
+    @include font(36px, null, null);
+    @include flex-basis(100%);
   }
 }
 
 section {
   @include margin-padding(null, null, all, 20px);
+}
+
+@include media-queries(laptop_L, min) {
+  .wrapper {
+    @include size(1200px, auto);
+    @include push--auto();
+  }
+
+  .wrapper.top {
+    @include margin-padding(top, -100px, null, null);
+    @include position(relative, $top: 0, $left: 0);
+    z-index: 1;
+  }
 }

@@ -9,10 +9,29 @@
     @include align-items(center);
     @include justify-content(space-between);
   }
+
+  @include media-queries(laptop_L, min) {
+    @include centerer;
+    @include size(1200px, auto);
+    transform: translate(-50%, 0);
+    top: 0px;
+
+    //fixed animation
+
+    &.fixed-header {
+      position: fixed;
+      width: 100%;
+      right: -72px;
+      height: 200px;
+      background: $basic-layout-color;
+      -webkit-animation: header-animation .5s ease-in;
+      -webkit-animation-fill-mode: forwards;
+    }
+  }
 }
 
 .logo {
-  @include background-image("../../images/logo.png");
+  @include background-image("../../src/images/logo.png");
   @include size(71px, 40px);
   @include centerer;
   display: block;
@@ -26,99 +45,57 @@
   }
 
   @include media-queries(laptop, min) {
+    @include margin-padding(all, 20px 0 0 20px, null, null);
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     transform: none;
-    @include margin-padding(all, 20px 0 0 20px, null, null);
   }
 }
 
 .phone {
   @include position(absolute, $top: 10px, $right: 10px);
   @include font(14px, #ffffff, bold);
-  @include background-image("../../images/phone.png");
+  @include background-image("../../src/images/phone.png");
   @include margin-padding(null, null, left, 20px);
   background-size: 17px auto;
   text-decoration: none;
 
   @include media-queries(tablet, min) {
+    @include margin-padding(null, null, left, 30px);
     font-size: 18px;
     background-size: 22px auto;
-    padding-left: 30px;
   }
 
   @include media-queries(laptop, min) {
-    position: relative;
-    top: auto;
-    right: auto;
+    @include position(relative, $top: auto, $right: auto);
     @include margin-padding(null, null, right, 20px);
-  }
-}
-
-.item_desc {
-  @include font(12px, #ffffff, null);
-  @include centerer;
-  @include margin-padding(null, null, all, 0 20px);
-  top: 70%;
-  width: 100%;
-  text-align: center;
-
-  @include media-queries(tablet, min) {
-    font-size: 20px;
-  }
-
-  .item-header {
-    @include font(18px, #ffffff, null);
-    @include margin-padding(bottom, 5px, null, null);
-
-    @include media-queries(tablet, min) {
-      @include margin-padding(bottom, 10px, null, null);
-      font-size: 38px;
-    }
-  }
-
-  .item-text {
-    @include margin-padding(bottom, 5px, null, null);
-
-    @include media-queries(tablet, min) {
-      @include margin-padding(bottom, 10px, null, null);
-    }
-  }
-
-  .item-btn {
-    @include custom-button(null, null, $basic-layout-color, #ffffff);
-    @include margin-padding(null, null, all, 5px 10px);
-
-    @include media-queries(tablet, min) {
-      @include margin-padding(null, null, all, 10px 20px);
-    }
   }
 }
 
 //desktop nav
 @include media-queries(laptop, min) {
-  .menuToggle{
-    flex-basis: 100%;
+  .menuToggle {
+    @include flex-basis(100%);
   }
 
-  .nav{
+  .nav {
     @include flexbox;
     @include justify-content(flex-end);
 
-    &__item{
+    &__item {
       @include margin-padding(all, 0 20px, null, null);
     }
 
-    &__link{
-      text-decoration: none;
+    &__link {
       @include font(18px, #ffffff, bold);
       @include margin-padding(null, null, top, 10px);
       @include transition(.4s);
+      text-decoration: none;
 
       &:hover,
-      &.active{
+      &.active {
         border-top: 5px solid $basic-layout-color;
       }
     }
