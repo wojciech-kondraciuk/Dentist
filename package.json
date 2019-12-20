@@ -1,7 +1,7 @@
 {
-  "name": "webpack_new_starter",
+  "name": "dentist",
   "version": "1.0.0",
-  "description": "starter",
+  "description": "caredent template",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
@@ -10,32 +10,28 @@
     "clean": "rimraf dist"
   },
   "keywords": [],
-  "author": "",
+  "author": "wk",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6",
-    "@babel/polyfill": "^7.7.0",
+    "css-loader": "^3.2.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "css-loader": "^3.2.0",
-    "style-loader": "^1.0.0",
     "node-sass": "^4.13.0",
     "rimraf": "^3.0.0",
     "sass-loader": "^8.0.0",
+    "serialize-javascript": "^2.1.2",
+    "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "jquery": "^3.4.1",
-<<<<<<< HEAD
     "owl.carousel": "^2.3.4"
-=======
-    "owl.carousel": "^2.3.4",
-    "simplelightbox": "^1.17.3",
->>>>>>> 1662e017ed87e6e9ad6020499164b2a6acaa4abe
   }
 }

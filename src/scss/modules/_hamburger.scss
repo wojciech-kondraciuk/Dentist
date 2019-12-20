@@ -34,10 +34,10 @@
     }
 
     span {
-      display: block;
       @include size(33px, 4px);
       @include margin-padding(bottom, 5px, null, null);
       @include position(relative, $top: 0px, $left: 0px);
+      display: block;
       background-color: $hamburger--color;
       border-radius: 3px;
       z-index: 1;
